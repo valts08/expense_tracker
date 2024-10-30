@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useExpenseContext from "../hooks/useExpenseContext"
+import "../styles/main.css";
 
 export const ExpenseSum = () => {
     const [ expenseSum, setExpenseSum ] = useState(0);
@@ -23,8 +24,8 @@ export const ExpenseSum = () => {
     }, [expenseList])
 
     return (
-        <>
+        <div className="total-amount">
             {expenseSum}
-        </>
+        </div>
     )
 }
