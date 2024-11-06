@@ -6,4 +6,4 @@ type ExpenseContextType = {
     setExpenseList: React.Dispatch<React.SetStateAction<ExpenseItem[]>>
   }
 
-export const ExpenseContext = createContext<ExpenseContextType | null>(null);
+export const ExpenseListContext = createContext<ExpenseContextType | null>(null);

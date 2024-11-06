@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ExpenseContext } from "../contexts/ExpenseContext";
+import { ExpenseListContext } from "../contexts/ExpenseListContext";
 
 export default function useExpenseContext() {
-    const context = useContext(ExpenseContext);
+    const context = useContext(ExpenseListContext);
     if (!context) {
         throw new Error("useExpenseContext must be used within a ExpenseContextProvider")
     };
