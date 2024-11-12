@@ -39,6 +39,7 @@ export const ExpenseSum = () => {
     }
 
 
+
     useEffect(() => {
         setExpenseSum(getExpenseSum().sum);
         setExpenseNegativeValue(getExpenseSum().negative)

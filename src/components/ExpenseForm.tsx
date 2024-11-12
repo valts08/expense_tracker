@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExpenseList } from "./ExpenseList";
 import { ExpenseSum } from "./ExpenseSum";
 import { DeleteButton } from "./DeleteButton";
@@ -16,14 +16,21 @@ export const ExpenseForm = () => {
     const [ title, setTitle ] = useState<string>("");
     const [ expenseList, setExpenseList ] = useState<ExpenseItem[]>([]);
 
-
+    useEffect(() => {
+        const storageValue: string | null = localStorage.getItem("expense-list")
+        if (storageValue !== null) {
+            setExpenseList(JSON.parse(storageValue))
+        }
+    }, [])
     
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         if (!value || !title.length) {
             return
         }
-        setExpenseList((prev: ExpenseItem[]): ExpenseItem[] => [...prev, { name: title, value: value, id: !expenseList.length ? 1 : expenseList.slice(-1)[0].id + 1}]);
+        const newExpenseList: ExpenseItem[] = [...expenseList, {name: title, value: value, id: !expenseList.length ? 1 : expenseList.slice(-1)[0].id + 1}]
+        setExpenseList(newExpenseList);
+        localStorage.setItem("expense-list", JSON.stringify(newExpenseList))
     }
 
     return (
