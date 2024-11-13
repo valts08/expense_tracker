@@ -15,12 +15,13 @@ export const DeleteButton = ({ type, id }: ButtonProp) => {
         if (typeof e === undefined) {
             throw new Error("Function removeItem got an argument of type undefined");
         }
-        setExpenseList((prev: ExpenseItem[]) => prev && prev.filter((item: ExpenseItem) => item.id !== e));
+        const newExpenseList: ExpenseItem[] = [...expenseList.filter((item: ExpenseItem) => item.id !== e)];
+        setExpenseList(newExpenseList);
         if (!localStorage.getItem("expense-list")) {
             localStorage.removeItem("expense-list")
             return
         }
-        localStorage.setItem("expense-list", JSON.stringify(expenseList))
+        localStorage.setItem("expense-list", JSON.stringify(newExpenseList))
     }
 
     const handleRemoveAll = (): void => {
