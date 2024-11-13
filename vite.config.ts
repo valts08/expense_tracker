@@ -4,6 +4,6 @@ import { ghPages } from 'vite-plugin-gh-pages'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/expense_tracker/',
+  base: '/expense_tracker', // maybe its not deploying because the base isnt set up properly
   plugins: [react(), ghPages()],
 })
