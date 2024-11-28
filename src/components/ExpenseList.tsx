@@ -1,6 +1,6 @@
 import { ExpenseItem } from './ExpenseForm';
 import { DeleteButton } from "./DeleteButton";
-import useExpenseContext from "../hooks/useExpenseListContext";
+import useExpenseContext from "../custom_hooks/useExpenseListContext";
 import "../styles/main.css";
 
 export const ExpenseList = () => {
